@@ -23,6 +23,7 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const pathname = usePathname();
     const isHome = pathname === "/";
+    const isTransparent = isHome && !isScrolled;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -63,7 +64,9 @@ export default function Header() {
                             href={item.href}
                             className={cn(
                                 "text-base font-bold transition-colors select-none",
-                                isScrolled || !isHome ? "text-foreground/80 hover:text-accent" : "text-white/80 hover:text-white"
+                                isTransparent
+                                    ? "text-zinc-900 dark:text-white/90 hover:text-accent dark:hover:text-white"
+                                    : "!text-zinc-900 dark:!text-white hover:!text-accent"
                             )}
                         >
                             {item.name}
@@ -86,7 +89,7 @@ export default function Header() {
                 <button
                     className={cn(
                         "md:hidden z-50 transition-colors",
-                        mobileMenuOpen || isScrolled || !isHome ? "text-foreground" : "text-white"
+                        mobileMenuOpen || isScrolled || !isHome ? "text-foreground" : "text-zinc-900 dark:text-white"
                     )}
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     aria-label="Toggle mobile menu"
