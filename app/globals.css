@@ -1,26 +1,120 @@
 @import "tailwindcss";
 
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Light Mode - Industrial Sage/Mint Tint */
+  --background: #f2f7f4;
+  /* Very light mint/grey */
+  --foreground: #0f1f18;
+  /* Dark green/black */
+
+  --primary: #15803d;
+  /* Green 700 */
+  --primary-foreground: #ffffff;
+
+  --secondary: #e1e8e5;
+  /* Sage Grey */
+  --secondary-foreground: #0f1f18;
+
+  --accent: #16a34a;
+  /* Green 600 */
+  --accent-foreground: #ffffff;
+
+  --muted: #eef2f0;
+  /* Light Sage */
+  --muted-foreground: #52665d;
+  /* Sage Slate */
+
+  --card: #ffffff;
+  --card-foreground: #0f1f18;
+
+  --border: #cfdbd6;
+  /* Sage Border */
+}
+
+.dark {
+  /* Gema Industrial Green Theme (Dark Mode) */
+  --background: #020a07;
+  /* Ultra dark green/black */
+  --foreground: #e2e8f0;
+  /* Slate 200 */
+
+  --primary: #064e3b;
+  /* Emerald 900 */
+  --primary-foreground: #ffffff;
+
+  --secondary: #112822;
+  /* Deep Jungle Green */
+  --secondary-foreground: #a7f3d0;
+
+  --accent: #a3e635;
+  /* Lime 400 - Industrial Neon */
+  --accent-foreground: #0f172a;
+
+  --muted: #0f291e;
+  /* Darker muted green */
+  --muted-foreground: #64748b;
+  /* Slate 500 */
+
+  --card: #051510;
+  /* Slightly lighter than bg */
+  --card-foreground: #f1f5f9;
+
+  --border: #134e4a;
+  /* Teal 900 */
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-border: var(--border);
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-outfit);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
