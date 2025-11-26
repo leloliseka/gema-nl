@@ -131,6 +131,8 @@ export default function ContactPage() {
                                     <input
                                         type="text"
                                         id="name"
+                                        name="name"
+                                        autoComplete="name"
                                         className="w-full bg-muted/50 border border-border dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-accent transition-colors"
                                         placeholder="Uw naam"
                                     />
@@ -140,6 +142,8 @@ export default function ContactPage() {
                                     <input
                                         type="email"
                                         id="email"
+                                        name="email"
+                                        autoComplete="email"
                                         className="w-full bg-muted/50 border border-border dark:border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-accent transition-colors"
                                         placeholder="uw@email.nl"
                                     />
