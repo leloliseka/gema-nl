@@ -16,9 +16,13 @@ const navigation = [
     { name: "Contact", href: "/contact" },
 ];
 
+import { usePathname } from "next/navigation";
+
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const isHome = pathname === "/";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -57,7 +61,10 @@ export default function Header() {
                         <Link
                             key={item.name}
                             href={item.href}
-                            className="text-base font-bold text-foreground/80 dark:text-white/80 hover:text-accent transition-colors select-none"
+                            className={cn(
+                                "text-base font-bold transition-colors select-none",
+                                isScrolled || !isHome ? "text-foreground/80 hover:text-accent" : "text-white/80 hover:text-white"
+                            )}
                         >
                             {item.name}
                         </Link>
@@ -77,7 +84,10 @@ export default function Header() {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden z-50 text-white"
+                    className={cn(
+                        "md:hidden z-50 transition-colors",
+                        mobileMenuOpen || isScrolled || !isHome ? "text-foreground" : "text-white"
+                    )}
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     aria-label="Toggle mobile menu"
                 >
@@ -91,7 +101,7 @@ export default function Header() {
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
-                            className="fixed inset-0 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+                            className="fixed inset-0 bg-background/98 backdrop-blur-xl z-40 flex flex-col items-center justify-start pt-32 gap-6 md:hidden overflow-y-auto"
                         >
                             <nav className="flex flex-col items-center gap-6">
                                 {navigation.map((item) => (
@@ -99,20 +109,23 @@ export default function Header() {
                                         key={item.name}
                                         href={item.href}
                                         onClick={() => setMobileMenuOpen(false)}
-                                        className="text-2xl font-medium text-white hover:text-accent transition-colors"
+                                        className="text-lg font-bold text-foreground hover:text-accent transition-colors"
                                     >
                                         {item.name}
                                     </Link>
                                 ))}
                             </nav>
-                            <div className="flex flex-col gap-4 mt-8">
+                            <div className="flex flex-col gap-4 mt-4 mb-8">
                                 <Link
                                     href="/contact"
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="px-8 py-3 rounded-full bg-accent text-accent-foreground font-bold text-lg hover:bg-accent/90 transition-all"
+                                    className="px-8 py-3 rounded-full bg-accent text-accent-foreground font-bold text-base hover:bg-accent/90 transition-all shadow-lg"
                                 >
                                     Offerte Aanvragen
                                 </Link>
+                                <div className="flex justify-center">
+                                    <ThemeToggle />
+                                </div>
                             </div>
                         </motion.div>
                     )}
