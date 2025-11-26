@@ -180,6 +180,7 @@ export default function ContactPage() {
             {/* Map Section */}
             <section className="relative h-[500px] w-full bg-muted border-t border-border dark:border-white/5">
                 <iframe
+                    title="Google Maps locatie van Gema Fast B.V."
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2424.567890123456!2d5.4987654!3d52.5123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c64e6f12345678%3A0x1234567890abcdef!2sZuiveringweg%2050B%2C%208243%20PZ%20Lelystad!5e0!3m2!1snl!2snl!4v1700000000000!5m2!1snl!2snl"
                     width="100%"
                     height="100%"
