@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -39,11 +40,15 @@ export default function Header() {
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 z-50 select-none">
-                    <img
-                        src="/logo-gema.png"
-                        alt="Gema Fasteners"
-                        className="h-12 w-auto object-contain"
-                    />
+                    <div className="relative h-12 w-32">
+                        <Image
+                            src="/logo-gema.png"
+                            alt="Gema Fasteners"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -74,6 +79,7 @@ export default function Header() {
                 <button
                     className="md:hidden z-50 text-white"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                    aria-label="Toggle mobile menu"
                 >
                     {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>

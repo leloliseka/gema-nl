@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
     return (
@@ -7,11 +8,14 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
                     <div className="flex flex-col gap-6">
                         <Link href="/" className="flex items-center gap-2 select-none">
-                            <img
-                                src="/logo-gema.png"
-                                alt="Gema Fasteners"
-                                className="h-14 w-auto object-contain"
-                            />
+                            <div className="relative h-14 w-40">
+                                <Image
+                                    src="/logo-gema.png"
+                                    alt="Gema Fasteners"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
                         </Link>
                         <p className="text-muted-foreground leading-relaxed max-w-sm">
                             Uw partner in speciale bevestigingsmaterialen en draaiwerk. Kwaliteit, flexibiliteit en betrouwbaarheid sinds 1976.

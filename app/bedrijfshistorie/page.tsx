@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Calendar, MapPin, Building2, Warehouse, Users, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 const history = [
     {
@@ -105,10 +106,12 @@ export default function BedrijfshistoriePage() {
                                 <div className="relative group">
                                     <div className="absolute -inset-2 bg-gradient-to-r from-accent to-emerald-500 rounded-2xl opacity-20 blur-lg group-hover:opacity-40 transition-opacity duration-500" />
                                     <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-muted aspect-video shadow-2xl">
-                                        <img
+                                        <Image
                                             src={item.image}
                                             alt={item.title}
-                                            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                            fill
+                                            className="object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                            sizes="(max-width: 768px) 100vw, 50vw"
                                         />
                                         {/* Overlay Gradient */}
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />

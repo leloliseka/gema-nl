@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { getMaterialBySlug, materials } from "@/lib/materials";
 import { ArrowLeft, CheckCircle2, Factory, Settings } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 // Generate static params for all known slugs
 export function generateStaticParams() {
@@ -70,11 +71,16 @@ export default async function MaterialDetailPage({ params }: { params: Promise<{
                                     {/* Inner Content Container */}
                                     <div className="relative rounded-[18px] bg-white dark:bg-black/40 overflow-hidden">
                                         {/* Image with manual crop */}
-                                        <img
-                                            src={material.image}
-                                            alt={material.title}
-                                            className="h-auto object-contain bg-white dark:bg-transparent -ml-[3px] w-[calc(100%+3px)] max-w-none"
-                                        />
+                                        <div className="relative w-full h-full min-h-[400px]">
+                                            <Image
+                                                src={material.image}
+                                                alt={material.title}
+                                                fill
+                                                className="object-contain bg-white dark:bg-transparent -ml-[3px] w-[calc(100%+3px)] max-w-none"
+                                                sizes="(max-width: 768px) 100vw, 50vw"
+                                                priority
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
