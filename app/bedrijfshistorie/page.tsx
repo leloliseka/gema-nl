@@ -28,11 +28,14 @@ const history = [
     },
 ];
 
+
 export default function BedrijfshistoriePage() {
     return (
-        <main className="min-h-screen bg-background text-foreground overflow-hidden pt-24 pb-20">
+        <main className="min-h-screen bg-background text-foreground pt-24 pb-20 relative">
+
+
             {/* Hero Section */}
-            <section className="relative py-20 px-4 md:px-6">
+            <section className="relative py-20 px-4 md:px-6 z-10">
                 <div className="container mx-auto max-w-4xl text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -62,7 +65,7 @@ export default function BedrijfshistoriePage() {
             </section>
 
             {/* Timeline Section */}
-            <section className="container mx-auto px-4 md:px-6 relative">
+            <section className="container mx-auto px-4 md:px-6 relative z-10">
                 {/* Vertical Line */}
                 <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent/0 via-accent/50 to-accent/0 transform -translate-x-1/2 hidden md:block" />
 
@@ -105,16 +108,15 @@ export default function BedrijfshistoriePage() {
                             <div className="flex-1 w-full md:w-1/2">
                                 <div className="relative group">
                                     <div className="absolute -inset-2 bg-gradient-to-r from-accent to-emerald-500 rounded-2xl opacity-20 blur-lg group-hover:opacity-40 transition-opacity duration-500" />
-                                    <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-muted aspect-video shadow-2xl">
+                                    <div className="relative rounded-2xl overflow-hidden border border-border dark:border-white/10 aspect-video shadow-2xl bg-zinc-900">
                                         <Image
                                             src={item.image}
                                             alt={item.title}
                                             fill
                                             className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                                             sizes="(max-width: 768px) 100vw, 50vw"
+                                            priority={true}
                                         />
-                                        {/* Overlay Gradient */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60" />
                                     </div>
                                 </div>
                             </div>
