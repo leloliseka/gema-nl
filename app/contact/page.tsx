@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Send, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
+import ContactAnimation from "@/components/ContactAnimation";
+
 export default function ContactPage() {
     return (
         <div className="min-h-screen bg-background text-foreground pt-20">
@@ -14,7 +16,7 @@ export default function ContactPage() {
                     <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-t from-accent/5 to-transparent rounded-full blur-3xl" />
                 </div>
 
-                <div className="container relative z-10 px-4 md:px-6">
+                <div className="container relative z-10 px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -34,6 +36,11 @@ export default function ContactPage() {
                             </p>
                         </div>
                     </motion.div>
+
+                    {/* Animation Container */}
+                    <div className="hidden lg:block h-[400px] w-full relative">
+                        <ContactAnimation />
+                    </div>
                 </div>
             </section>
 

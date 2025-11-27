@@ -44,7 +44,7 @@ export default function Header() {
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 z-50 select-none">
+                <Link href="/" className="relative flex items-center gap-2 z-[60] select-none cursor-pointer">
                     <div className="relative h-12 w-32">
                         <Image
                             src="/logo-gema.png"
